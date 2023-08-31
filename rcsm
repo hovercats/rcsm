@@ -1,0 +1,16 @@
+#!/bin/rc
+
+basedir=/etc/rcsm
+
+fn usage {
+	printf 'Usage: -a|-d|-c|-k|-l|-s|-r\n'
+	exit 0
+}
+
+switch($1) {
+case -h
+	usage
+case *
+	printf 'Invalid argument\n'
+	usage
+}
