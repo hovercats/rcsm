@@ -7,9 +7,14 @@ fn usage {
 	exit 0
 }
 
+
 switch($1) {
 case -h
 	usage
+case -c
+	test -d $basedir || mkdir -p $basedir
+	test -d $basedir/run || mkdir -p $basedir/run
+	test -d $basedir/avail || mkdir -p $basedir/avail
 case *
 	printf 'Invalid argument\n'
 	usage
