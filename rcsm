@@ -37,15 +37,15 @@ case -d
 	rm -f $basedir/run/$2
 case -h
 	usage
-case -l
-	find $basedir/avail -type f
-case -s
-	run $1 $2
 case -k
 	run $1 $2
+case -l
+	find $basedir/avail -type f
 case -r
 	run -k $2
 	run -s $1
+case -s
+	run $1 $2
 case *
 	printf 'Invalid argument\n'
 	usage
