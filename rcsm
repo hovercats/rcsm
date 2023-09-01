@@ -3,7 +3,7 @@
 basedir=/etc/rcsm
 
 fn usage {
-	printf 'Usage: -a|-d|-c|-k|-l|-s|-r\n'
+	printf 'Usage: -a|-d|-c|-h|-k|-l|-s|-r\n'
 	exit 0
 }
 
