@@ -43,7 +43,7 @@ case -l
 	find $basedir/avail -type f
 case -r
 	run -k $2
-	run -s $1
+	run -s $2
 case -s
 	run $1 $2
 case *
