@@ -38,7 +38,7 @@ case -d
 case -h
 	usage
 case -l
-	find $basedir/avail -type -f
+	find $basedir/avail -type f
 case -s
 	run $1 $2
 case -k
