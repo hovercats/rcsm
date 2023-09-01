@@ -8,11 +8,11 @@ fn usage {
 }
 
 switch($1) {
-case -h
-	usage
 case -c
 	test -d $basedir/run || mkdir -p $basedir/run
 	test -d $basedir/avail || mkdir -p $basedir/avail
+case -h
+	usage
 case -l
 	find $basedir/avail -type -f
 case *
