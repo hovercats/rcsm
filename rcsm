@@ -8,6 +8,14 @@ fn usage {
 }
 
 switch($1) {
+case -a
+	if (test -e $basedir/avail/$2) {
+		ln -sf $basedir/avail/$2 $basedir/run/
+	}
+	if not {
+		printf 'Service not found\n'
+		exit 1
+	}
 case -c
 	test -d $basedir/run || mkdir -p $basedir/run
 	test -d $basedir/avail || mkdir -p $basedir/avail
