@@ -7,6 +7,20 @@ fn usage {
 	exit 0
 }
 
+fn run {
+	if (test -z $2) {
+		test -e $basedir/avail/$2 || printf 'Service not found\n'
+		test -x $basedir/avail/$2 || printf 'Servicefile not executable\n'
+		$basedir/avail/$2 $1 &
+	}
+	if not {
+		for (serv in $basedir/run) {
+			test -x $serv || printf 'Servicefile not executable\n'
+			$basedir/run/$2 $1 &
+		}
+	}
+}
+
 switch($1) {
 case -a
 	if (test -e $basedir/avail/$2) {
@@ -25,6 +39,10 @@ case -h
 	usage
 case -l
 	find $basedir/avail -type -f
+case -s
+	run $1 $2
+case -k
+	run $1 $2
 case *
 	printf 'Invalid argument\n'
 	usage
