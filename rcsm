@@ -19,6 +19,8 @@ case -a
 case -c
 	test -d $basedir/run || mkdir -p $basedir/run
 	test -d $basedir/avail || mkdir -p $basedir/avail
+case -d
+	rm -f $basedir/run/$2
 case -h
 	usage
 case -l
