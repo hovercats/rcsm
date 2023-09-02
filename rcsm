@@ -9,9 +9,9 @@ fn usage {
 
 fn run {
 	if (test -z $2) {
-		for (serv in $basedir/run) {
+		for (serv in $basedir/run/*) {
 			test -x $serv || printf 'Servicefile not executable\n'
-			$basedir/run/$serv $1 >/dev/null >[1=2]  &
+			$serv $1 >/dev/null >[1=2]  &
 		}
 	}
 	if not {
