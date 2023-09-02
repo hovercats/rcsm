@@ -11,13 +11,13 @@ fn run {
 	if (test -z $2) {
 		for (serv in $basedir/run/*) {
 			test -x $serv || printf 'Servicefile not executable\n'
-			$serv $1 >/dev/null >[1=2]  &
+			$serv $1 >/dev/null >[2=1]  &
 		}
 	}
 	if not {
 		test -e $basedir/avail/$2 || printf 'Service not found\n'
 		test -x $basedir/avail/$2 || printf 'Servicefile not executable\n'
-		$basedir/avail/$2 $1 >/dev/null >[1=2]  &
+		$basedir/avail/$2 $1 >/dev/null >[2=1]  &
 	}
 }
 
