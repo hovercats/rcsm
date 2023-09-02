@@ -1,4 +1,53 @@
 rcsm
 ----
 
-a tiny service manager written in rc
+A tiny service manager written in rc.
+It doesnt really do much, appart from launching and killing services.
+So no logging, no monitoring, just start/stop.
+
+It follows the same concept as svc[0], but is about half the LOCs.
+
+
+Install
+-------
+
+	$ chmod 755 rcsm
+
+Then add to your PATH.
+
+Usage
+-----
+
+Create neccessary directories
+
+	$ rcsm -c 
+
+Now create your service scripts
+To launch your services with rcsm
+
+	$ rcsm -s foo
+
+If you have multiple services you want to run, you can activate them
+
+	$ rcsm -a foo
+	$ rcsm -a bar
+
+You can now start all your activated services simultaneously
+	
+	$ rcsm -s
+
+To kill your services, it follows the same idea as -s flag
+
+	$ rcsm -k foo
+	$ rcsm -k
+
+
+Service scripts
+---------------
+
+Service scripts are rather simple, and only require 2 case statements (-s/-k).
+this means that you can essentially use w/e language/shell you want, as long as
+-s and -k options is available.
+
+
+[0] https://github.com/hovercats/svc
