@@ -11,9 +11,7 @@ It follows the same concept as svc[0], but is about half the LOCs.
 Install
 -------
 
-	$ chmod 755 rcsm
-
-Then add to your PATH.
+	$ make install
 
 Usage
 -----
