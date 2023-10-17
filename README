@@ -5,7 +5,7 @@ A tiny service manager written in rc.
 It doesnt really do much, appart from launching and killing services.
 So no logging, no monitoring, just start/stop.
 
-It follows the same concept as svc[0], but is about half the LOCs.
+It follows the same concept as shsm[0], but is about half the LOCs.
 
 
 Install
@@ -48,4 +48,4 @@ this means that you can essentially use w/e language/shell you want, as long as
 -s and -k options is available.
 
 
-[0] https://github.com/hovercats/svc
+[0] https://github.com/hovercats/shsm
