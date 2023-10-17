@@ -21,22 +21,19 @@ Create neccessary directories
 	$ rcsm -c 
 
 Now create your service scripts
-To launch your services with rcsm
+To start/stop your services with rcsm
 
 	$ rcsm -s foo
+	$ rcsm -k foo
 
 If you have multiple services you want to run, you can activate them
 
 	$ rcsm -a foo
 	$ rcsm -a bar
 
-You can now start all your activated services simultaneously
+You can now start/stop all your activated services simultaneously
 	
 	$ rcsm -s
-
-To kill your services, it follows the same idea as -s flag
-
-	$ rcsm -k foo
 	$ rcsm -k
 
 
