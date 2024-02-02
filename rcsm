@@ -1,4 +1,4 @@
-#!/bin/rc
+#!/bin/rc -e
 
 basedir=/etc/rcsm
 
