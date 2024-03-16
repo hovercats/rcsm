@@ -1,4 +1,6 @@
-#!/bin/rc -e
+#!/bin/rc
+
+flag e +
 
 basedir=/etc/rcsm
 
