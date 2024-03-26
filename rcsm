@@ -6,7 +6,6 @@ basedir=/etc/rcsm
 
 fn usage {
 	printf 'Usage: -a|-d|-c|-h|-k|-l|-s|-r\n'
-	exit 0
 }
 
 fn run {
@@ -50,5 +49,5 @@ case -s
 	run $1 $2
 case *
 	printf 'Invalid argument\n'
-	usage
+	usage && exit 1
 }
