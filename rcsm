@@ -24,12 +24,17 @@ fn run {
 
 switch($1) {
 case -a
-	if (test -e $basedir/avail/$2) {
-		ln -sf $basedir/avail/$2 $basedir/run/
+	if (test -z $2) {
+		find $basedir/run -type l
 	}
 	if not {
-		printf 'Service not found\n'
-		exit 1
+		if (test -e $basedir/avail/$2) {
+			ln -sf $basedir/avail/$2 $basedir/run/
+		}
+		if not {
+			printf 'Service not found\n'
+			exit 1
+		}
 	}
 case -c
 	test -d $basedir/run || mkdir -p $basedir/run
