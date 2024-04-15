@@ -11,13 +11,10 @@ fn usage {
 fn run {
 	if (test -z $2) {
 		for (serv in $basedir/run/*) {
-			test -x $serv || printf 'Servicefile not executable\n' && exit 1
 			$serv $1 >/dev/null >[2=1]  &
 		}
 	}
 	if not {
-		test -e $basedir/avail/$2 || printf 'Service not found\n' && exit 1
-		test -x $basedir/avail/$2 || printf 'Servicefile not executable\n' && exit 1
 		$basedir/avail/$2 $1 >/dev/null >[2=1]  &
 	}
 }
