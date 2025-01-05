@@ -28,8 +28,12 @@ case -a
 	switch($#*) {
 		case 1
 			find $basedir/run -type l
-		case 2
-			ln -sf $basedir/avail/$2 $basedir/run/
+		case *
+			cmd=$1
+			shift 1
+			for (serv in $basedir/avail/$*) {
+				ln -sf $serv $basedir/run/
+			}
 	}
 case -c
 	test -d $basedir/run || mkdir -p $basedir/run
