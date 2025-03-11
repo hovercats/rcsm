@@ -49,8 +49,12 @@ case -k
 case -l
 	find $basedir/avail -type f
 case -r
-	run -k $2
-	run -s $2
+	shift 1
+	for (serv in $*) {
+		run -k $serv
+		sleep 1
+		run -s $serv
+	}
 case -s
 	run $*
 case *
