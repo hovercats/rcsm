@@ -2,7 +2,7 @@ rcsm
 ----
 
 A tiny service manager written in rc.
-It doesnt really do much, appart from launching and killing services.
+It doesnt really do much, appart from starting and killing services.
 So no logging, no monitoring, just start/stop.
 
 It follows the same concept as shsm[0], but is about half the LOCs.
@@ -13,36 +13,32 @@ Install
 
 	$ make install
 
+
 Usage
 -----
+rcsm [flag] [args]
+-a	- Activate service.
+-c  - Create neccessary directories.
+-d  - Deactivate services.
+-h  - Show usage message.
+-k  - Kill services.
+-l  - List available services.
+-s  - Start services.
+-r  - Restart services.
 
-Create neccessary directories
+Some flags have additional functionallity when ran without arguments:
+-a  - Lists activated services.
+-k  - Kill all activated services.
+-s  - Start all activated services.
 
-	$ rcsm -c 
-
-Now create your service scripts
-To start/stop your services with rcsm
-
-	$ rcsm -s foo
-	$ rcsm -k foo
-
-If you have multiple services you want to run, you can activate them
-
-	$ rcsm -a foo
-	$ rcsm -a bar
-
-You can now start/stop all your activated services simultaneously
-	
-	$ rcsm -s
-	$ rcsm -k
+Some flags also supports multiple arguments: -a -d -k -s -r
 
 
 Service scripts
 ---------------
-
-Service scripts are rather simple, and only require 2 case statements (-s/-k).
-this means that you can essentially use w/e language/shell you want, as long as
--s and -k options is available.
-
+Service scripts are rather simple, and have only 2 requirements:
+Accepting -s/-k flags.
+Which gives users the freedom to use whichever language/shell they like for
+service scripts.
 
 [0] https://github.com/hovercats/shsm
