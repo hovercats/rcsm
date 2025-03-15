@@ -29,7 +29,6 @@ case -a
 		case 1
 			find $basedir/run -type l
 		case *
-			cmd=$1
 			shift 1
 			for (serv in $basedir/avail/$*) {
 				ln -sf $serv $basedir/run/
@@ -39,7 +38,6 @@ case -c
 	test -d $basedir/run || mkdir -p $basedir/run
 	test -d $basedir/avail || mkdir -p $basedir/avail
 case -d
-	cmd=$1
 	shift 1
 	for (serv in $basedir/run/$*) rm -r $serv
 case -h
@@ -50,7 +48,7 @@ case -l
 	find $basedir/avail -type f
 case -r
 	shift 1
-	for (serv in $*) {
+	for (serv in $basedir/run/$*) {
 		run -k $serv
 		sleep 1
 		run -s $serv
