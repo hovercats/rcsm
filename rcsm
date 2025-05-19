@@ -39,7 +39,7 @@ case -c
 	test -d $basedir/avail || mkdir -p $basedir/avail
 case -d
 	shift 1
-	for (serv in $basedir/run/$*) rm -r $serv
+	for (serv in $basedir/run/$*) rm -fr $serv
 case -h
 	usage
 case -k
