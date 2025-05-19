@@ -12,7 +12,7 @@ fn run {
 	switch($#*) {
 		case 1
 			for (serv in $basedir/run/*) {
-				$serv $1 >/dev/null >[2=1]  &
+				$serv $1 >/dev/null >[2=1] &
 			}
 		case *
 			cmd=$1
