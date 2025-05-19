@@ -17,8 +17,8 @@ fn run {
 		case *
 			cmd=$1
 			shift 1
-			for (serv in $basedir/avail/$*) {
-				$serv $cmd >/dev/null >[2=1] &
+			for (serv) {
+				$basedir/avail/$serv $cmd >/dev/null >[2=1] &
 			}
 	}
 }
@@ -30,8 +30,8 @@ case -a
 			find $basedir/run -type l
 		case *
 			shift 1
-			for (serv in $basedir/avail/$*) {
-				ln -sf $serv $basedir/run/
+			for (serv) {
+				ln -sf $basedir/avail/$serv $basedir/run/
 			}
 	}
 case -c
@@ -39,7 +39,7 @@ case -c
 	test -d $basedir/avail || mkdir -p $basedir/avail
 case -d
 	shift 1
-	for (serv in $basedir/run/$*) rm -fr $serv
+	for (serv) rm -fr $basedir/run/$serv
 case -h
 	usage
 case -k
@@ -48,10 +48,10 @@ case -l
 	find $basedir/avail -type f
 case -r
 	shift 1
-	for (serv in $basedir/run/$*) {
-		run -k $serv
+	for (serv) {
+		run -k $basedir/run/$serv
 		sleep 1
-		run -s $serv
+		run -s $basedir/run/$serv
 	}
 case -s
 	run $*
